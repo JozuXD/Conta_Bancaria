@@ -64,7 +64,17 @@ public class ContaController implements ContaRepository{
 
 	@Override
 	public void sacar(int numero, float valor) {
-		// TODO Auto-generated method stub
+		var buscaConta = buscarNaCollection(numero);
+		
+		if(buscaConta != null) {
+			
+			if (listaContas.get(listaContas.indexOf(buscaConta)).sacar(valor)==true) {
+				System.out.println("\nO Saque na Conta numero: "+numero+ " foi efetuado com sucesso");
+				
+			}else {
+				System.out.println("\nA Conta numero: "+numero+ " não foi encontrada!");
+			}
+		}
 		
 	}
 
